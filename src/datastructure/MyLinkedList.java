@@ -1,4 +1,4 @@
-package part1;
+package datastructure;
 
 import java.util.Hashtable;
 

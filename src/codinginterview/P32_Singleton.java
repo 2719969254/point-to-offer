@@ -1,4 +1,4 @@
-package part1;
+package codinginterview;
 
 /**
  * 单利模式

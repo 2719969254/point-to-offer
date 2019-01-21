@@ -1,4 +1,4 @@
-package part1;
+package codinginterview;
 
 /**
  * 把一个字符串转换为整数
