@@ -23,7 +23,7 @@ class TreeNode {
 }
 
 /**
- * 对二叉树进行前序、中序、后续遍历
+ * 根据二叉树前序、中序遍历求出后续遍历
  *
  * @author VicterTian
  * @version V1.0
