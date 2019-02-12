@@ -16,7 +16,7 @@ package codinginterview;
  * @version V1.0
  * @Date 2019/2/9
  */
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class P119_TwoNumberAdd {
 	private static char[] add(String str1, String str2) {
 		char[] char1 = str1.toCharArray();
@@ -105,7 +105,6 @@ public class P119_TwoNumberAdd {
 						nTakeOver = 1;
 						nsum = nsum - 10;
 						if (i == 0) {
-							num[i + 1] = (char) (nsum + '0');
 							num[i] = (char) (nTakeOver + '0');
 						}
 						num[i + 1] = (char) (nsum + '0');
@@ -118,6 +117,9 @@ public class P119_TwoNumberAdd {
 					if (nsum >= 10) {
 						nTakeOver = 1;
 						nsum = nsum - 10;
+						if (i == 0) {
+							num[i] = (char) (nTakeOver + '0');
+						}
 						num[i + 1] = (char) (nsum + '0');
 					} else {
 						nTakeOver = 0;
@@ -218,8 +220,8 @@ public class P119_TwoNumberAdd {
 		// String num2="123";
 		// String num1 = "-999";
 		// String num2 = "999";
-		String num1 = "-899";
-		String num2 = "999";
+		String num1 = "-123456789000";
+		String num2 = "-123";
 		char[] num = add(num1, num2);
 		printNumber(num);
 	}
