@@ -2,6 +2,7 @@ package com.kfzx.concurrency;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -34,18 +35,23 @@ public class FindTwoNumberForSum {
 	 * 思路二
 	 */
 	private static void twoSum1(int[] data, int sum) {
+		int count = 0;
 		Map<Integer, Integer> hashMap = new HashMap<>(data.length);
 		for (int i : data) {
 			hashMap.put(i, i);
 		}
-		for (int i : data) {
-			int num = sum - i;
+		for (Iterator<Map.Entry<Integer, Integer>> it = hashMap.entrySet().iterator(); it.hasNext(); ) {
+			Map.Entry<Integer, Integer> i = it.next();
+			int num = sum - i.getKey();
 			if (hashMap.containsValue(num)) {
-				System.out.println("twoSum1 = " + i + "\t" + num);
-				return;
+				it.remove();
+				System.out.println("twoSum1 = " + i.getKey() + "\t" + num);
+				count++;
 			}
 		}
-		System.out.println("没有满足条件的值");
+		if (count == 0) {
+			System.out.println("没有满足条件的值");
+		}
 	}
 
 	/**
@@ -55,11 +61,14 @@ public class FindTwoNumberForSum {
 		Arrays.sort(data);
 		int begin = 0;
 		int end = data.length - 1;
+		int count = 0;
 		while (begin < end) {
 			int currSum = data[begin] + data[end];
 			if (currSum == sum) {
 				System.out.println("twoSum2 = " + data[begin] + "\t" + data[end]);
-				return;
+				count++;
+				begin++;
+				end--;
 			} else {
 				if (currSum < sum) {
 					begin++;
@@ -68,12 +77,14 @@ public class FindTwoNumberForSum {
 				}
 			}
 		}
-		System.out.println("没有满足条件的值");
+		if (count == 0) {
+			System.out.println("没有满足条件的值");
+		}
 	}
 
 	public static void main(String[] args) {
 		int[] data = {-1, 1, -2, 7, 11, 15, 2, -4,};
 		twoSum1(data, -3);
-		twoSum2(data, 16);
+		twoSum2(data, 0);
 	}
 }

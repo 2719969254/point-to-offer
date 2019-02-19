@@ -1,28 +1,52 @@
 package com.kfzx.exercises;
 
-public class Main {
-	public static int gcd(int a, int b) {
-		if (b == 0) {
-			return a;
-		}
-		return gcd(b, a % b);
-	}
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
+public class Main {
+
+	/*public static void main(String[] args) {
+		ConcurrentHashMap<ConcurrentHashMap<String, Integer>, Integer> myHashMap = new ConcurrentHashMap<>();
+		ConcurrentHashMap<String, Integer> temp = new ConcurrentHashMap<>();
+		temp.put("1", 1);
+		temp.put("2", 2);
+		myHashMap.put(temp, 3);
+		for (Iterator<Map.Entry<ConcurrentHashMap<String, Integer>, Integer>>
+		     it = myHashMap.entrySet().iterator(); it.hasNext();){
+			Map.Entry<ConcurrentHashMap<String, Integer>, Integer> item = it.next();
+			ConcurrentHashMap<String, Integer> to_put = new ConcurrentHashMap<>(item.getKey());
+			to_put.remove("1");
+			myHashMap.put(to_put, item.getValue());
+			System.out.println(myHashMap.size());
+			it.remove();
+			System.out.println(myHashMap.size());
+		}
+	}*/
 	public static void main(String[] args) {
-		int n = 0;
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 6; k++) {
-					//填空位置  其中一个骰子上的数字等于另外两个的和
-					if ((i == j + k) || (j == i + k) || (k == i + j)) {
-						n++;
-					}
+		final Map<String, String> map = new HashMap<>(2);
+		Thread t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for(int i = 0; i < 100000; i++){
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							map.put(UUID.randomUUID().toString(), "");
+
+						}
+					}).start();
 				}
 			}
+		});
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-
-		int m = gcd(n, 6 * 6 * 6);
-		System.out.println(n / m + "/" + 6 * 6 * 6 / m);
 	}
 
 }
