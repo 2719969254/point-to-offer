@@ -44,6 +44,7 @@ public class P142_ReverseList {
 		if (head == null ) {
 			return null;
 		}
+		// 说明两边搜长度为一，可以直接返回它本身
 		if (head.next == null){
 			return head;
 		}
