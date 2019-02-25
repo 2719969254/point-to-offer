@@ -4,9 +4,9 @@ package com.kfzx.codinginterview;
  * 表示数值的字符串
  * <p>
  * 判断一个字符串是否表示数值，如+100,5e2，-123，-1E-16都是，12e，1e3.14，+-5,1.2.3,12e+5.4都不是。
- * 提示：表示数值的字符串遵循模式A[.[B]][e|EC] 或者 .B[e|EC];A,B,C表示整数，|表示或。[]表示可有可无。
+ * 提示：表示数值的字符串遵循模式A[.[B]][e|EC] 或者 .B[e|EC];AAA,B,C表示整数，|表示或。[]表示可有可无。
  * <p>
- * 此题也没有没什么特殊思路，就按照A[.[B]][e|EC] 或者 .B[e|EC];A,B,C这两种模式匹配下即可。
+ * 此题也没有没什么特殊思路，就按照A[.[B]][e|EC] 或者 .B[e|EC];AAA,B,C这两种模式匹配下即可。
  *
  * @author VicterTian
  * @version V1.0
@@ -14,7 +14,7 @@ package com.kfzx.codinginterview;
  */
 public class P127_NumberStrings {
 	public static boolean isNumber(String str) {
-		// 正确形式：A[.[B]][e|EC] 或者 .B[e|EC];
+		// 正确形式：AAA[.[B]][e|EC] 或者 .B[e|EC];
 		if (str == null || str.length() <= 0) {
 			return false;
 		}

@@ -8,6 +8,7 @@ package com.kfzx.exercises;
 public class Demo {
 	public static void main(String[] args) {
 		int begin = 777;
+
 		// 如果猜对的话是翻倍。如果猜错扣555
 		String str = "vxvxvxvxvxvxvvx";
 		// 第一种方法，将字符串转换成字符数组

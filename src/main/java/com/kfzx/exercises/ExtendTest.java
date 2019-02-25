@@ -1,10 +1,10 @@
 package com.kfzx.exercises;
 class A{
     static{
-        System.out.println("A static");
+        System.out.println("AAA static");
     }
 }
-class B extends A{
+class B extends A {
     static{
         System.out.println("B static");
     }
