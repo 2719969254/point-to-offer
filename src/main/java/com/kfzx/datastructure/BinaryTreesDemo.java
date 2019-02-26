@@ -23,7 +23,7 @@ public class BinaryTreesDemo {
 
 	private Node root;
 
-	public BinaryTreesDemo() {
+	private BinaryTreesDemo() {
 		root = null;
 	}
 
@@ -62,7 +62,7 @@ public class BinaryTreesDemo {
 	 * 将数值输入，构建二叉树
 	 */
 
-	public void buildTree(int[] data) {
+	private void buildTree(int[] data) {
 		for (int i : data) {
 			insert(i);
 		}
@@ -71,6 +71,7 @@ public class BinaryTreesDemo {
 	/**
 	 * 中序遍历方法递归实现
 	 */
+
 	private void inOrder(Node localRoot) {
 		if (localRoot != null) {
 			inOrder(localRoot.left);
