@@ -19,13 +19,14 @@ package com.kfzx.codinginterview;
  * @Date 2019/1/23
  */
 public class P78_JumpFloorExtend {
-	public int jumpFloorII(int n){
-		if(n==1 || n==2){
+	public int jumpFloorII(int n) {
+		if (n == 1 || n == 2) {
 			return n;
-		}else{
-			return jumpFloorII(n-1)*2;
+		} else {
+			return jumpFloorII(n - 1) * 2;
 		}
 	}
+
 	public static void main(String[] args) {
 		P78_JumpFloorExtend jumpFloor = new P78_JumpFloorExtend();
 		System.out.println("jumpFloor.jumpFloorII(5) = " + jumpFloor.jumpFloorII(5));
