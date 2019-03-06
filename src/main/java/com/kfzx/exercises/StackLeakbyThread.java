@@ -13,8 +13,7 @@ public class StackLeakbyThread {
 	public void stackLeakbyThread(){
 		while (true){
 			new Thread(){
-				@Override
-				public void run() {
+				@Override public void run() {
 					while (true){
 
 					}

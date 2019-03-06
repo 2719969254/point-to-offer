@@ -1,37 +1,33 @@
 package com.kfzx.exercises;
 
+import java.math.BigInteger;
+import java.util.Scanner;
+
 /**
  * @author VicterTian
  * @version V1.0
  * @Date 2019/1/25
  */
 public class Test {
-	static int result = 0;
-
 	public static void main(String[] args) {
-		int n = 3;
-		result = fun1(n);
-		System.out.println("result = " + result);
-	}
-
-	private static int fun(int n) {
-		if (n == 1 || n == 2) {
-			return n;
+		// 记录阶乘末尾0的个数
+		int count = 0;
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		BigInteger mul = new BigInteger(1 + "");
+		// 利用BigInteger进行大数相乘
+		for (int i = 1; i <= num; i++) {
+			mul = mul.multiply(new BigInteger(i + ""));
 		}
-		return fun(n - 1) + fun(n - 2);
-	}
-
-	private static int fun1(int n) {
-		int preOne = 1;
-		int preTwo = 2;
-		if (n==1|| n==2){
-			return n;
+		String str = mul.toString();
+		// 从末尾开始判断0的个数
+		for (int i = str.length() - 1; i >= 0; i--) {
+			if (str.charAt(i) == '0') {
+				count++;
+			} else {
+				break;
+			}
 		}
-		for (int i = 3;i<=n;i++){
-			result = preOne + preTwo;
-			preOne = preTwo;
-			preTwo = result;
-		}
-		return result;
+		System.out.println(count);
 	}
 }
