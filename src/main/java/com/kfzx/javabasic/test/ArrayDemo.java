@@ -40,7 +40,7 @@ public class ArrayDemo {
 			arr2[i] = arr2[s - i - 1];
 			arr2[s - i - 1] = temp;
 		}
-
+		// 冒泡排序
 		for (int i = 0; i < arr1.length - 1; i++) {
 			for (int j = 0; j < arr1.length - i - 1; j++) {
 				if (arr1[j + 1] < arr1[j]) {
@@ -51,5 +51,18 @@ public class ArrayDemo {
 			}
 		}
 		System.out.println("Arrays.toString(arr1) = " + Arrays.toString(arr1));
+
+		// 将字符串“我爱你中国”反转，保存到字符串中
+		String str = "我爱你中国";
+		char[] chars = str.toCharArray();
+		for (int i = 0, s = chars.length; i < s / 2; i++) {
+			char temp = chars[i];
+			// s-i-1 中的-1是防止数组越界
+			chars[i] = chars[s - i - 1];
+			chars[s - i - 1] = temp;
+		}
+		for (char aChar : chars) {
+			System.out.print(aChar);
+		}
 	}
 }
