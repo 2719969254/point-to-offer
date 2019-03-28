@@ -24,7 +24,7 @@ import java.util.Queue;
  */
 
 public class P171_PrintTreeFromTopToBottom {
-	static class TreeNode<T> {
+	private static class TreeNode<T> {
 		T val;
 		TreeNode<T> left;
 		TreeNode<T> right;
