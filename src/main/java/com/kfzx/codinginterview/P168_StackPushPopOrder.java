@@ -29,16 +29,22 @@ public class P168_StackPushPopOrder {
 		if (pushSeq == null || popSeq == null || pushSeq.length != popSeq.length) {
 			return false;
 		}
+		// 建立一个辅助栈
 		Stack<Integer> stack = new Stack<>();
 		int pushSeqIndex = 0, popSeqIndex = 0;
+
 		while (popSeqIndex < popSeq.length) {
+			// 如果辅助栈为空，或者栈顶元素不等于对应的数字，只能将对应的数字压入辅助栈中
 			if (stack.isEmpty() || stack.peek() != popSeq[popSeqIndex]) {
+
 				if (pushSeqIndex < pushSeq.length) {
 					stack.push(pushSeq[pushSeqIndex++]);
 				} else {
+					// 如果所有元素已经完成压栈，并且栈顶元素也不是要对应的数字，那么返回false
 					return false;
 				}
 			} else {
+				// 如果辅助栈不为空，并且栈顶元素等于对应的数字,则出栈，并且popSeqIndex加一
 				stack.pop();
 				popSeqIndex++;
 			}
@@ -50,7 +56,12 @@ public class P168_StackPushPopOrder {
 		int[] push = {1, 2, 3, 4, 5};
 		int[] pop1 = {4, 5, 3, 2, 1};
 		int[] pop2 = {4, 3, 5, 1, 2};
+		int[] pop3 = {1, 2, 3, 4, 5};
+		int[] pop4 = {5, 4, 3, 2, 1};
+
 		System.out.println(isPopOrder(push, pop1));
 		System.out.println(isPopOrder(push, pop2));
+		System.out.println(isPopOrder(push, pop3));
+		System.out.println(isPopOrder(push, pop4));
 	}
 }

@@ -22,7 +22,7 @@ import java.util.Queue;
  * @version V1.0
  * @Date 2019/3/28
  */
-
+@SuppressWarnings("all")
 public class P171_PrintTreeFromTopToBottom {
 	private static class TreeNode<T> {
 		T val;

@@ -29,7 +29,7 @@ public class P32_Singleton {
 
 /**
  * 饿汉式
- * 特点：线程安全，在类初始化执行到静态属  ·性时就分配了资源，会有资源浪费问题
+ * 特点：线程安全，在类初始化执行到静态属性时就分配了资源，会有资源浪费问题
  */
 class Singleton1 {
 	private static final Singleton1 INSTANCE = new Singleton1();
